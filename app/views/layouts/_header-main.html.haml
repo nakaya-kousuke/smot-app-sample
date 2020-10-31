@@ -1,0 +1,10 @@
+.header-contents
+  - if user_signed_in?
+    .search-box-container
+      %input.search-box{type: 'text', placeholder: '検索する'}
+  .logo-content
+    = link_to "smot", root_path
+  - if user_signed_in?
+    .right-content
+      .user-page
+        = link_to "マイページ", user_path(current_user)
