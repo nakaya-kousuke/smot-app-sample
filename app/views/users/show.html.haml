@@ -1,0 +1,30 @@
+= render "layouts/header-sub"
+
+.mypage-container
+  .mypage-contents
+    .mypage-currentuser-title
+      マイページ
+    .mypage-currentuser-info-top
+      登録情報
+      .mypage-currentuser-name
+        %h2 名前
+        = current_user.family_name
+        = current_user.first_name
+      .mypage-currentuser-gender
+        %h2 性別
+        = current_user.gender
+      .mypage-currentuser-age
+        %h2 年齢
+        = current_user.age
+      .mypage-currentuser-btn
+        .mypage-editbtn
+          = link_to "編集する", edit_user_registration_path(current_user)
+        .mypage-logoutbtn
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
+  .like-stores-container
+    - if @favorite_list.present?
+      - @favorite_list.each do |store|
+        = store.title
+        = store.content
+
+= render "layouts/footer"
