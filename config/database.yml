@@ -50,6 +50,7 @@ test:
 production:
   <<: *default
   database: smot_app_sample_production
-  username: smot_app_sample
+  username: root
+  # username: smot_app_sample
   password: monsuke23
   # password: <%= ENV['SMOT_APP_SAMPLE_DATABASE_PASSWORD'] %>
